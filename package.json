@@ -1,0 +1,32 @@
+{
+    "name": "node-fibers-synchronize-helper",
+    "version": "1.0.0",
+    "description": "helper for synchronize promise and callback",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "synchronize": "2.0.0",
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zakdav/node-fibers-synchronize-helper.git"
+    },
+    "keywords": [
+    "fiber",
+    "synchronize",
+    "promise",
+    "helper",
+    "sync",
+    "avoid callback",
+    "callback hell",
+
+  ],
+    "author": "davide.zaccheo@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zakdav/node-fibers-synchronize-helper/issues"
+    },
+    "homepage": "https://github.com/zakdav/node-fibers-synchronize-helper#readme"
+}
