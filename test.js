@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient
 var assert = require("assert")
 
 
-var synchProm = require('./synchProm')
+var synchProm = require('node-fibers-synchronize-helper')
 
 
 var url = 'mongodb://localhost:27017/local';
@@ -62,6 +62,12 @@ var testSynch = function () {
 
     cursor = collection_test.find({});
     var resCb = synchProm.executeFiberFn(cursor, cursor.toArray)
+    assert.notEqual(null, resCb);
+
+    console.log("cursor.count")
+    resCb = synchProm.executeFiberFn(cursor, cursor.count, true, {
+        skip: 1
+    })
     assert.notEqual(null, resCb);
 
 
