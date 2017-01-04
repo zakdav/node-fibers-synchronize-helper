@@ -23,7 +23,12 @@ try{
     var resCb = synchProm.executeFiberFn(cursor, cursor.toArray)
     assert.notEqual(null, resCb);
 
-//multiparam callback
+//callback with param
+    resCb = synchProm.executeFiberFn(cursor, cursor.count, true, {
+        skip: 1
+    })
+
+//multiparam result callback
     var resMultiCb = synchProm.executeFiberFnMultiParamCb(this, multiParamCB, ['res1', 'res2'], "a", "b", "c")   
     
     
