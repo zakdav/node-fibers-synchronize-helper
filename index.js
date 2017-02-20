@@ -106,7 +106,7 @@ var executeFiberIntFn = function (obj, fn, params, returnParamsNameArr) {
     //runFiber(fn, params, defer)
 
     if (returnParamsNameArr)
-        params.push(sync.defers.apply(sync, returnParamsNameArr))
+        params.push(sync.defers.apply(obj, returnParamsNameArr))
     else
         params.push(sync.defer())
 
