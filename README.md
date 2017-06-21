@@ -6,6 +6,7 @@ This helper uses synchronize module (https://www.npmjs.com/package/synchronize) 
 ***Create/Start Fiber Thread:***
 
 var synchProm = require('node-fibers-synchronize-helper')
+
 synchProm.executeSynch(function, callback)
 
 ```
