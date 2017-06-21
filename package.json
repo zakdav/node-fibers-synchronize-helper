@@ -1,7 +1,7 @@
 {
     "name": "node-fibers-synchronize-helper",
-    "version": "1.0.2",
-    "description": "helper for synchronize promise and callback",
+    "version": "1.1.0",
+    "description": "helper for synchronize promise and callback and manage variables on Fiber Thread as ThreadLocal",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,13 +14,19 @@
         "url": "git+https://github.com/zakdav/node-fibers-synchronize-helper.git"
     },
     "keywords": [
+        "nodejs",
+         "node",
     "fiber",
     "synchronize",
     "promise",
+    "callback",
     "helper",
     "sync",
     "avoid callback",
-    "callback hell"
+    "callback hell",
+    "fiber thread",
+    "Java ThreadLocal",
+    "Underlying Fiber Thread Objects"
 
   ],
     "author": "davide.zaccheo@gmail.com",

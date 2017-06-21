@@ -110,33 +110,58 @@ var executeFiberIntFn = function (obj, fn, params, returnParamsNameArr) {
     else
         params.push(sync.defer())
 
-    console.log(params)
+    //console.log(params)
     var res = sync.await(fn.apply(obj, params));
     return res;
 }
 
 exports.executeFiberFn = function (obj, fn) {
-    //console.log(fn)
-    //console.log(arguments)
-    var params = [];
-    var argl = arguments.length
-    for (var i = 2; i < argl; i++) {
-        params.push(arguments[i]);
+        //console.log(fn)
+        //console.log(arguments)
+        var params = [];
+        var argl = arguments.length
+        for (var i = 2; i < argl; i++) {
+            params.push(arguments[i]);
+        }
+        return executeFiberIntFn(obj, fn, params);
     }
-    return executeFiberIntFn(obj, fn, params);
-}
+    /*
+    exports.executeFiberFnName = function (obj, fnName) {
+        //console.log(fn)
+        //console.log(arguments)
+        var params = [];
+        var argl = arguments.length
+        for (var i = 2; i < argl; i++) {
+            params.push(arguments[i]);
+        }
+        var fn = obj[fnName]
+        return executeFiberIntFn(obj, fn, params);
+    }
+    */
 
 exports.executeFiberFnMultiParamCb = function (obj, fn, returnParamsNameArr) {
-    //console.log(fn)
-    //console.log(arguments)
-    var params = [];
-    var argl = arguments.length
-    for (var i = 3; i < argl; i++) {
-        params.push(arguments[i]);
+        //console.log(fn)
+        //console.log(arguments)
+        var params = [];
+        var argl = arguments.length
+        for (var i = 3; i < argl; i++) {
+            params.push(arguments[i]);
+        }
+        return executeFiberIntFn(obj, fn, params, returnParamsNameArr);
     }
-    return executeFiberIntFn(obj, fn, params, returnParamsNameArr);
-}
-
+    /*
+    exports.executeFiberFnNameMultiParamCb = function (obj, fnName, returnParamsNameArr) {
+        //console.log(fn)
+        //console.log(arguments)
+        var params = [];
+        var argl = arguments.length
+        for (var i = 3; i < argl; i++) {
+            params.push(arguments[i]);
+        }
+        var fn = obj[fnName]
+        return executeFiberIntFn(obj, fn, params, returnParamsNameArr);
+    }
+    */
 
 
 
@@ -150,4 +175,24 @@ exports.getSynchCallbackObj = function (that, returnParamsNameArr) {
 
 exports.executeSynch = function (fn, done) {
     sync.fiber(fn, done);
+}
+
+exports.setThreadLocalValue = function (key, value) {
+    if (sync.Fiber && sync.Fiber.current)
+        sync.Fiber.current[key] = value;
+    else {
+        console.log("ERROR", "NO Fiber Thread")
+        throw Error("NO Fiber Thread");
+    }
+}
+
+exports.getThreadLocalValue = function (key) {
+    if (sync.Fiber && sync.Fiber.current)
+        return sync.Fiber.current[key];
+    else {
+        // throw Error("NO Fiber Thread");
+        console.log("ERROR", "NO Fiber Thread")
+        return undefined;
+    }
+
 }

@@ -3,8 +3,8 @@
 var MongoClient = require('mongodb').MongoClient
 var assert = require("assert")
 
-
-var synchProm = require('node-fibers-synchronize-helper')
+var synchProm = require('./index.js')
+    //var synchProm = require('node-fibers-synchronize-helper')
 
 
 var url = 'mongodb://localhost:27017/local';
