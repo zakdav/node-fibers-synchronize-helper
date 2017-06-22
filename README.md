@@ -22,8 +22,6 @@ synchProm.executeSynch(function, callback)
 
 ***Promise:***
 
-Object result:
-
 **var result = executePromiseFiberFn(Object/this, method/function, params ...)**
 
 **var result = executePromiseFiberFnName(Object/this, method/function name, params ...)**
@@ -40,7 +38,6 @@ example:
 
 ***Callback:***
 
-Object result:
 **var result = executeFiberFn(Object/this, method/function, params ...)**
 
 example:
@@ -50,13 +47,13 @@ example:
       , {name:"Sarah", title:"Princess"}], {w:1})
       
 ```
-Array results:
+Map results (keys are from result name array):
 
-**var results = executeFiberFnMultiParamCb(Object/this, method/function, result name array , params ...)** 
+**var resultMap = executeFiberFnMultiParamCb(Object/this, method/function, result name array , params ...)** 
 
 example:
 ```
-    var resMultiCbs = synchProm.executeFiberFnMultiParamCb(this, multiParamCB, ['res1', 'res2'], "a", "b", "c")  
+    var resMultiCbMap = synchProm.executeFiberFnMultiParamCb(this, multiParamCB, ['res1', 'res2'], "a", "b", "c")  
     
 ```
 
