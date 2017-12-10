@@ -7,20 +7,37 @@ var synchProm = require('./index.js')
     //var synchProm = require('node-fibers-synchronize-helper')
 
 
-var url = 'mongodb://localhost:27017/local';
+var url = 'mongodb://localhost:27017/test';
 console.log("CALLBACK")
 MongoClient.connect(url, function (err, db) {
     assert.equal(null, err);
     db.close();
 });
 console.log("PROMISE")
-MongoClient.connect(url).then(function (res) {
-    var collection = res.collection('test_correctly_access_collections2');
-    assert.notEqual(null, collection);
+var insertDocuments = function(db, callback) {
+  // Get the documents collection
+  var collection = db.collection('documents');
+  // Insert some documents
+  collection.insertMany([
+    {a : 1}, {a : 2}, {a : 3}
+  ], function(err, result) {
+    assert.equal(err, null);
+    assert.equal(3, result.result.n);
+    assert.equal(3, result.ops.length);
+    console.log("Inserted 3 documents into the collection");
+    callback(result);
+  });
+}
 
-}).catch(function (err) {
-    // console.log("err:" + err);
-})
+
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+  insertDocuments(db, function() {
+    db.close();
+  });
+});
 
 console.log("SYNCH")
 

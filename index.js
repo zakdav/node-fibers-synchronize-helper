@@ -1,4 +1,4 @@
-var sync = require('synchronize');
+var sync = require('synchronize_f2');
 
 var synchObj = function (that, returnParamsNameArr) {
     this.that = that;
