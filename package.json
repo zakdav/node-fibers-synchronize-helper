@@ -1,6 +1,6 @@
 {
     "name": "node-fibers-synchronize-helper",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "helper for synchronize promise and callback and manage variables on Fiber Thread as ThreadLocal",
     "main": "index.js",
     "scripts": {
