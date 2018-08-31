@@ -1,8 +1,10 @@
 # node-fibers-synchronize-helper
 
-This helper uses synchronize module (https://www.npmjs.com/package/synchronize) and helps to manage promises and callbacks, and manage variables on underlying Fiber Thread like Java ThreadLocal, **you will be able to synchronize callback and promises** and **develop syncronously as your did in Java** returning Objects and catch exceptions, and set-get Objects on your Fiber Thread as you did with Java **ThreadLocal**.
-Note version 2.0.x:
-updated Fibers version to 2.0.0 by synchronize_f2 module (just a synchronize fork with pointing to Fibers 2.0.0) 
+This helper uses Fibers coroutines by synchronize_f2 module (fork of https://www.npmjs.com/package/synchronize) and helps to manage promises and callbacks, and manage variables on underlying Fiber Thread like Java ThreadLocal, **you will be able to synchronize callback and promises** and **develop syncronously as your did in Java** returning Objects and catch exceptions, and set-get Objects on your Fiber Thread as you did with Java **ThreadLocal**.
+
+Note version 3.0.x:
+
+updated Fibers version to 3 by synchronize_f2 module (just a synchronize fork with pointing to Fibers 3) 
 
 
 ***Create/Start Fiber Thread:***
